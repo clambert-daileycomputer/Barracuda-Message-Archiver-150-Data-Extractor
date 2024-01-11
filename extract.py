@@ -9,7 +9,6 @@ import magic
 import mimetypes
 import json
 
-# Specify source and working folders, as well as report file variables
 source_folder = "/run/media/cameron/JTA barracuda data/mail/data/active"
 working_folder = "/run/media/cameron/JTA barracuda data/extracted"
 random_seed_for_eml_folder = random.randint(1, 1000)
@@ -19,7 +18,6 @@ Path(working_folder_two_name).mkdir(parents=True, exist_ok=True)
 Path(working_folder_one_name).mkdir(parents=True, exist_ok=True)
 
 '''
-# Ask for starting file number and ending file number
 starting_zip = int(input("Enter Number of First Zip File to Process: "))
 ending_zip = int(input("Enter Number of Last Zip File to Process: "))
 '''
