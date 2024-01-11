@@ -10,11 +10,11 @@ import mimetypes
 import json
 
 # Specify source and working folders, as well as report file variables
-source_folder = "/home/cameron/Documents/New Folder/mail/data/active"
-working_folder = "/home/cameron/Documents/New Folder/extracted"
+source_folder = "/run/media/cameron/JTA barracuda data/mail/data/active"
+working_folder = "/run/media/cameron/JTA barracuda data/extracted"
 random_seed_for_eml_folder = random.randint(1, 1000)
-working_folder_one_name = os.path.join(working_folder, "WorkingFolder1")
-working_folder_two_name = os.path.join(working_folder, f'Emails_{random_seed_for_eml_folder}')
+working_folder_one_name = os.path.join(working_folder, "working_folder")
+working_folder_two_name = os.path.join(working_folder, 'Emails_%s' % random_seed_for_eml_folder)
 Path(working_folder_two_name).mkdir(parents=True, exist_ok=True)
 Path(working_folder_one_name).mkdir(parents=True, exist_ok=True)
 
@@ -31,6 +31,7 @@ def decompress_gzip(file_path, file_extension):
 def dump_zip_files():
     # zip_file_set = [x.absolute() for x in Path(source_folder).iterdir() if x.is_file() and x.suffix == '.zip' and int(x.stem) >= starting_zip and int(x.stem) <= ending_zip]
     zip_file_set = [x.absolute() for x in Path(source_folder).iterdir() if x.is_file() and x.suffix == '.zip']
+    zip_file_set.sort()
     # Unzip all of the zip files in the list
     for zip_file in zip_file_set:
         print("extracting %s to %s" % (zip_file, working_folder_one_name))
